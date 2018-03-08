@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--引入db文件-->
+    <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="${uname}"></property>
+        <property name="password" value="${upass}"></property>
+        <property name="jdbcUrl" value="${url}"></property>
+        <property name="driverClass" value="${driver_Class}"></property>
+        <property name="maxPoolSize" value="${maxPoolSize}"></property>
+        <property name="initialPoolSize" value="${initPoolSize}"></property>
+    </bean>
+
+    <!--配置sqlsession-->
+    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="classpath:mybatis.xml"></property>
+        <property name="mapperLocations" value="classpath:com/entity/*.xml"></property>
+    </bean>
+
+
+    <!--&lt;!&ndash;配置一个类&ndash;&gt;-->
+    <!--<bean id="userdao" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+        <!--<property name="sqlSessionFactory" ref="sessionFactory"></property>-->
+        <!--<property name="mapperInterface" value="com.dao.Userdao"></property>-->
+    <!--</bean>-->
+
+    <!--配置一个包-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.dao"></property>
+    </bean>
+</beans>
