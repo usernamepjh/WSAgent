@@ -3,5 +3,50 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.dao.PersonDao">
+<mapper namespace="com.dao.Messagedao">
+
+
+   <resultMap id="messagemaps" type="com.entity.Message">
+      <id column="mid" property="mid"></id>
+      <result column="mtitle" property="mtitle"></result>
+      <result column="mcotent" property="mcotent"></result>
+      <result column="mrecord" property="mrecord"></result>
+      <result column="sid" property="sid"></result>
+      <result column="zid" property="zid"></result>
+      <result column="cid" property="cid"></result>
+      <result column="mtime" property="mtime"></result>
+      <result column="mstate" property="mstate"></result>
+      <result column="mreason" property="mreason"></result>
+      <collection property="agent" ofType="com.entity.Agent">
+            <id column="aid" property="aid"></id>
+            <result column="aname" property="aname"></result>
+            <result column="aphone" property="aphone"></result>
+            <result column="aaddress" property="aaddress"></result>
+            <result column="atime" property="atime"></result>
+      </collection>
+   </resultMap>
+   <select id="getallmessage" resultMap="messagemaps">
+       SELECT  m.*,a.* from message m,agent a  where m.aid=a.aid
+   </select>
+   
+
+     <update id="update_message_mstate" parameterType="com.entity.Message">
+            UPDATE  message set  mstate=#{mstate},mreason=#{mreason} where mid=#{mid}
+     </update>
+
+    <update id="update_message_mstate_down" parameterType="com.entity.Message">
+        UPDATE  message set  mstate=#{mstate},mreason=#{mreason} where mid=#{mid}
+    </update>
+
+
+
+
+
+
+
+
+
+
+
+
    </mapper>

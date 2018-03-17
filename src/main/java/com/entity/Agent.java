@@ -2,7 +2,12 @@ package com.entity;
 
 
 import java.sql.Date;
+import java.util.Set;
 
+
+/**
+ * 代理商实体类
+ */
 public class Agent {
 
     private  int aid;
@@ -11,6 +16,16 @@ public class Agent {
     private  String aaddress;
      private Date atime;
 
+
+     private Set<Message> messageset;
+
+    public Set<Message> getMessageset(){
+        return messageset;
+    }
+
+    public void setMessageset(Set<Message> messageset) {
+        this.messageset = messageset;
+    }
 
     public Agent(int aid, String aname, String aphone, String aaddress, Date atime) {
         this.aid = aid;

@@ -4,17 +4,27 @@ import java.util.Date;
 
 public class Message {
 
-    private  int mid;
-    private  String  mtitle;
-    private  String mcotent;
-    private  String mrecord;
-    private  int aid;
-    private  int sid;
-    private  int zid;
-    private  int cid;
-    private Date mtime;
-    private String mstate;
+    private  int mid;    //ID
+    private  String  mtitle;    //标题
+    private  String mcotent;    //内容
+    private  String mrecord;    //信息记录
+    private  int aid;    //代理商
+    private  int sid;    //业务员
+    private  int zid;    //终端店铺
+    private  int cid;    //消费者
+    private Date mtime;    //时间
+    private String mstate;    //状态
+    private String mreason;   //驳回理由
+    private Agent agent;      //代理商
 
+
+    public Agent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(Agent agent) {
+        this.agent = agent;
+    }
 
     public Message(int mid, String mtitle, String mcotent, String mrecord, int aid, int sid, int zid, int cid, Date mtime, String mstate) {
         this.mid = mid;
@@ -38,10 +48,30 @@ public class Message {
         this.mstate = mstate;
     }
 
-
+    public Message(int mid, String mtitle, String mcotent, String mrecord, int aid, int sid, int zid, int cid, Date mtime, String mstate, String mreason) {
+        this.mid = mid;
+        this.mtitle = mtitle;
+        this.mcotent = mcotent;
+        this.mrecord = mrecord;
+        this.aid = aid;
+        this.sid = sid;
+        this.zid = zid;
+        this.cid = cid;
+        this.mtime = mtime;
+        this.mstate = mstate;
+        this.mreason = mreason;
+    }
 
     public  Message(){
 
+    }
+
+    public String getMreason() {
+        return mreason;
+    }
+
+    public void setMreason(String mreason) {
+        this.mreason = mreason;
     }
 
     public int getMid() {

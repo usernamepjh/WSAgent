@@ -5,6 +5,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+
+
     <!--引入db文件-->
     <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -31,7 +33,7 @@
     <!--</bean>-->
 
     <!--配置一个包-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <bean id="scannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.dao"></property>
     </bean>
 </beans>
