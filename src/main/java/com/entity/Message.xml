@@ -25,12 +25,22 @@
             <result column="atime" property="atime"></result>
       </collection>
    </resultMap>
+    <!--一对多得到代理商发送的信息-->
    <select id="getallmessage" resultMap="messagemaps">
-       SELECT  m.*,a.* from message m,agent a  where m.aid=a.aid
+       SELECT  m.*,a.* from message m,agent a  where m.aid=a.aid  and  m.mstate!='3'
    </select>
-   
 
-     <update id="update_message_mstate" parameterType="com.entity.Message">
+    <!--得到管理员发送的信息-->
+    <select id="getallsendmessage" resultType="com.entity.Message">
+        SELECT  * from message where  mstate='3'
+    </select>
+
+      <delete id="delsendmessage" parameterType="com.entity.Message">
+          DELETE  FROM  message where mid=#{mid}
+      </delete>
+
+
+    <update id="update_message_mstate" parameterType="com.entity.Message">
             UPDATE  message set  mstate=#{mstate},mreason=#{mreason} where mid=#{mid}
      </update>
 
@@ -38,8 +48,10 @@
         UPDATE  message set  mstate=#{mstate},mreason=#{mreason} where mid=#{mid}
     </update>
 
-
-
+     <!--增加-->
+     <insert id="addsendmessage" parameterType="com.entity.Message">
+         INSERT into message(mtitle,mcotent,mstate)VALUES(#{mtitle},#{mcotent},#{mstate})
+     </insert>
 
 
 
