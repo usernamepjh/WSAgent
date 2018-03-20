@@ -8,77 +8,67 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <script src="js/vue.js"></script>
-    <script src="bootstrap/jquery.min.js"></script>
-    <script src="bootstrap/bootstrap.min.js"></script>
+    <title>登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+
+    <!-- Bootstrap Admin Theme -->
+    <link href="css/bootstrap-admin-theme.css" rel="stylesheet" media="screen">
+
+    <!-- Custom styles -->
+    <style type="text/css">
+        .alert{
+            margin: 0 auto 20px;
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+
+    <![endif]-->
+
 </head>
-<body>
-<%--<div id="main">--%>
-     <%--<div   style="width:100%;height: 60px;background: #5bc0de;background-color: #dff0d8;line-height: 60px;text-indent: 40px">--%>
-            <%--<a>基础设置</a>    <a>店铺管理</a>    <a>分销管理</a>    <a>财务管理</a>    <a>微站功能</a>    <a>权限分配</a>    <a>结算管理</a>    <a>编码管理</a>    <a>奖励管理</a>    <a>站内信管理</a>    <a>发货管理</a>    <a>发货操作台</a>--%>
-     <%--</div>--%>
-<%--</div>--%>
-
-
+<body class="bootstrap-admin-without-padding">
 <div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <nav class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">*********</a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <%--<a href="#">基础设置</a>--%>
-                            <button>基础设置</button>
-                        </li>
-                        <li>
-                            <a href="#">店铺管理</a>
-                        </li>
-                        <li>
-                            <a href="#">分销管理</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">财务管理</a>
-                        </li>
-                    </ul>
-                    <%--<ul class="nav navbar-nav navbar-right">--%>
-                        <%--<li>--%>
-                            <%--<a href="#">Link</a>--%>
-                        <%--</li>--%>
-                        <%--<li class="dropdown">--%>
-                            <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>--%>
-                            <%--<ul class="dropdown-menu">--%>
-                                <%--<li>--%>
-                                    <%--<a href="#">Action</a>--%>
-                                <%--</li>--%>
-                                <%--<li>--%>
-                                    <%--<a href="#">Another action</a>--%>
-                                <%--</li>--%>
-                                <%--<li>--%>
-                                    <%--<a href="#">Something else here</a>--%>
-                                <%--</li>--%>
-                                <%--<li class="divider">--%>
-                                <%--</li>--%>
-                                <%--<li>--%>
-                                    <%--<a href="#">Separated link</a>--%>
-                                <%--</li>--%>
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                    <%--</ul>--%>
-                </div>
-
-            </nav>
-        </div>
+    <div class="row" style="margin-top: 120px;">
+        <form id="loginfrom" class="bootstrap-admin-login-form" >
+            <h1>登录</h1>
+            <div class="form-group">
+                <input class="form-control" type="text" name="uname" placeholder="用户名">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="upwd" placeholder="密码">
+            </div>
+        </form>
     </div>
+    <button class="btn btn-lg btn-primary" onclick="login()" style="width: 340px; margin-left: 400px;margin-top: 10px">提交</button>
 </div>
 
 
+<script src="bootstrap/jquery.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
 
 
+
+function login() {
+             $.ajax({
+                url:"/login.action",
+                data:$('#loginfrom').serialize(),
+                dataType:"JSON",
+                type: "POST",
+                success:function (result) {
+                    window.location.replace("ce.jsp");
+                }
+            });
+
+        }
+</script>
 </body>
+
 </html>

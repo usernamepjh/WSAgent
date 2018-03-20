@@ -3,6 +3,10 @@ package com.controller;
 
 import com.dao.Userdao;
 import com.entity.User;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,14 +22,42 @@ public class Usercontroller {
 
     @ResponseBody
     @RequestMapping("getalluser")
-    public List<User> getalluser() {
-        System.out.println("来了");
-        List<User> users = userdao.getall();
+    public List<User> getalluser(User user){
+        List<User> users = userdao.getalluser_byname(user.getUname());
         for (User us : users) {
             System.out.println(us.getUname());
         }
         return users;
     }
+
+
+    //登录
+    @ResponseBody
+    @RequestMapping("login")
+    public int login(User user){
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token=new UsernamePasswordToken(user.getUname(),user.getUpwd());
+        try {
+            subject.login(token);
+        } catch (AuthenticationException e) {
+            return 1;
+        }
+        return 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

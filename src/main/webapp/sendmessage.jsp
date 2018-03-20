@@ -23,8 +23,7 @@
     <jsp:include page="ce.jsp"></jsp:include>
 </div>
 
-<div class="sendmessagediv" style="margin: 0 auto">
-
+<div class="sendmessagediv"  style="margin: 0 auto">
 
     <button type="button" onclick="$('#sendmessageModal').modal('show')" style="margin-left: 300px;">发布信息</button>
 
@@ -96,7 +95,7 @@
                      <form id="viamessagefrom" method="post">
                          <!-- 模态框主体 -->
                          <div class="modal-body">
-                             <input  type="text"  name="mid" id="mid"  style="display: none" v-bind:value="message.mid">
+                             <input  type="text"  name="mid"   style="display: none" v-bind:value="message.mid">
                              标题  <input style="width: 90%;" type="text" name="mtitle"  v-bind:value="message.mtitle"><br/><br/>
                              内容<textarea style="width: 90%;height:20%;" name="mcotent"  v-bind:value="message.mcotent"></textarea><br/><br/>
                          </div>
@@ -136,15 +135,15 @@
                 })
             },
             addsendmessage : function() {
+                var _this=this;
                 $.ajax({
                     url:"/sendmessagefrom.action",
                     data:$("#sendmessagefrom").serialize(),
                     dataType:"JSON",
                     type: "POST",
                     success:function (result) {
-                        $("#sendDataModal").modal("hide");
-                        var _this=this;
-                        _this.getsendmessage() ;
+                        $("#sendmessageModal").modal("hide");
+                        _this.getsendmessage();
                           alert("发布成功");
                     }
                 });

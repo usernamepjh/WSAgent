@@ -3,5 +3,52 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.dao.PersonDao">
-   </mapper>
+<mapper namespace="com.dao.ProductDao">
+
+
+   <resultMap id="productmaps" type="com.entity.Product">
+      <id column="pid" property="pid"></id>
+      <result column="pname" property="pname"></result>
+      <result column="ptime" property="ptime"></result>
+      <result column="pbz" property="pbz"></result>
+      <collection property="goods" ofType="com.entity.Goods">
+         <id column="gid" property="gid"></id>
+         <result column="gname" property="gname"></result>
+         <result column="gprice" property="gprice"></result>
+         <result column="gnum" property="gnum"></result>
+         <result column="gloge" property="gloge"></result>
+         <result column="cid" property="cid"></result>
+      </collection>
+   </resultMap>
+   <!--一对多得到代理商发送的信息-->
+   <select id="getProduct" resultMap="productmaps">
+      SELECT  p.*,g.* from product p,goods g  where p.gid=g.gid
+   </select>
+
+
+
+
+
+
+
+
+
+   <select id="getProductById" parameterType="int" resultType="com.entity.Product">
+      select * from product where pid=#{pid}
+   </select>
+
+   <select id="deleteProductById" parameterType="int">
+      delete from product where pid=#{pid}
+   </select>
+
+   <select id="addProduct" resultType="com.entity.Product">
+      INSERT INTO product(pname,ptime,gid,pbz) VALUES(#{pname},#{ptime},#{gid},#{pbz})
+   </select>
+
+   <select id="updateProduct" resultType="com.entity.Product">
+      UPDATE   product  SET  pname=#{arg0},pbz=#{arg1} WHERE pid=#{arg2}
+   </select>
+
+
+
+</mapper>

@@ -15,24 +15,12 @@
     <link rel="stylesheet" href="css/buttons.css" type="text/css" media="screen" title="no title" />
     <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen" title="no title" />
     <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" title="no title" />
-
     <link rel="stylesheet" href="css/ui-darkness/jquery-ui-1.8.12.custom.css" type="text/css" media="screen" title="no title" />
     <link rel="stylesheet" href="css/plugin/jquery.visualize.css" type="text/css" media="screen" title="no title" />
     <link rel="stylesheet" href="css/plugin/facebox.css" type="text/css" media="screen" title="no title" />
     <link rel="stylesheet" href="css/plugin/uniform.default.css" type="text/css" media="screen" title="no title"/>
     <link rel="stylesheet" href="css/plugin/dataTables.css" type="text/css" media="screen" title="no title" />
     <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" title="no title">
-    <script src="js/jquery/jquery-1.5.2.min.js"></script>
-    <script src="js/jquery/jquery-ui-1.8.12.custom.min.js"></script>
-    <script src="js/misc/excanvas.min.js"></script>
-    <script src="js/jquery/facebox.js"></script>
-    <script src="js/jquery/jquery.visualize.js"></script>
-    <script src="js/jquery/jquery.dataTables.min.js"></script>
-    <script src="js/jquery/jquery.tablesorter.min.js"></script>
-    <script src="js/jquery/jquery.uniform.min.js"></script>
-    <script src="js/jquery/jquery.placeholder.min.js"></script>
-    <script src="js/widgets.js"></script>
-    <script src="js/dashboard.js"></script>
     <script src="bootstrap/jquery.min.js"></script>
     <script src="bootstrap/bootstrap.min.js"></script>
     <script src="js/vue.js"></script>
@@ -142,16 +130,15 @@
         var ce = new Vue({
             el:'#cediv',
             data:{
-                submitUrl:"",
+                submitUrl:"/getalluser.action",
                 user:"",
                 users:[],
-                alabel :"dgh",
                 title:""
             },
             methods:{
                 getAll : function() {
                     var _this = this ;
-                    _this.submitUrl = "";
+                    _this.submitUrl;
                     //获得所有对象
                     $.getJSON(_this.submitUrl,function (result , status) {
                         _this._data.users = result ;
@@ -163,141 +150,7 @@
             }
         });
 
-
-
-
     </script>
-
-
-
-
-    <%--<div id="content" class="xgrid">--%>
-
-        <%--<div class="x12">--%>
-
-            <%--<h2>正在等待【交施工费】的工单</h2>--%>
-
-            <%--<table class="data display">--%>
-                <%--<thead>--%>
-                <%--<tr>--%>
-                    <%--<th width="120">工单号</th>--%>
-                    <%--<th width="60">类型</th>--%>
-                    <%--<th width="80">进度</th>--%>
-                    <%--<th width="90">当前处理部门</th>--%>
-                    <%--<th width="100">最后操作日期</th>--%>
-                    <%--<th width="200">用户名称</th>--%>
-                    <%--<th></th>--%>
-                <%--</tr>--%>
-                <%--</thead>--%>
-                <%--<tbody>--%>
-                <%--<tr class="odd">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140105-0001</a></td>--%>
-                    <%--<td>新户</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>许三多</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr class="even">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140117-0002</a></td>--%>
-                    <%--<td>分户</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>许四多</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr class="odd">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140105-0003</a></td>--%>
-                    <%--<td>新户</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>许五多</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr class="even">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140105-0004</a></td>--%>
-                    <%--<td>分户</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>中国农业银行解放路支行</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr class="odd">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140105-0005</a></td>--%>
-                    <%--<td>换表</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>中国联通广东路营业厅</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr class="even">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140105-0006</a></td>--%>
-                    <%--<td>换表</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>许八多</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr class="odd">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140105-0007</a></td>--%>
-                    <%--<td>分户</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>许蛮多</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr class="even">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140105-0008</a></td>--%>
-                    <%--<td>换表</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>新多国际商务大厦</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr class="odd">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140105-0009</a></td>--%>
-                    <%--<td>新户</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>许钱多</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr class="even">--%>
-                    <%--<td><a href="../page/be_orderInfo.html?id=B1-20140105-0001" target="orderInfo">B1-20140105-0010</a></td>--%>
-                    <%--<td>换表</td>--%>
-                    <%--<td>交施工费</td>--%>
-                    <%--<td>财务室</td>--%>
-                    <%--<td>2014-02-18</td>--%>
-                    <%--<td>许翔多</td>--%>
-                    <%--<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__payForm.html';"><span></span>处理</button></td>--%>
-                <%--</tr>--%>
-                <%--</tbody>--%>
-            <%--</table>--%>
-            <%--<div class="page">--%>
-                <%--<a href="#">第一页</a>--%>
-                <%--<a href="#">上一页</a>--%>
-                <%--<input class="pageIndex" value="1"/> / <input class="pageCount" readonly="readonly" value="98765" />--%>
-                <%--<a href="#">下一页</a>--%>
-                <%--<a href="#">第未页</a>--%>
-            <%--</div>--%>
-
-        <%--</div> <!-- .x12 -->--%>
-
-    <%--</div> <!-- #content -->--%>
-
-
-
-</div> <!-- #cediv -->
-
 
 </body>
 </html>

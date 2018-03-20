@@ -1,8 +1,14 @@
 package com.entity;
 
 import java.util.Date;
+import java.util.Set;
 
+
+/**
+ * 用户表实体类
+ */
 public class User {
+
 
 
     private  int uid;
@@ -10,6 +16,15 @@ public class User {
     private  String uphone;
     private  String upwd;
     private Date utime;
+    private Set<Role> roleSet;
+      //角色集合
+    public Set<Role> getRoleSet() {
+        return roleSet;
+    }
+
+    public void setRoleSet(Set<Role> roleSet) {
+        this.roleSet = roleSet;
+    }
 
     public User(int uid, String uname, String uphone, String upwd, Date utime) {
         this.uid = uid;
@@ -26,6 +41,19 @@ public class User {
         this.upwd = upwd;
         this.utime = utime;
     }
+
+    public User(String uname) {
+        this.uname = uname;
+
+    }
+
+
+    public User(String uname,  String upwd) {
+        this.uname = uname;
+        this.upwd = upwd;
+    }
+
+
 
 
     public User(){

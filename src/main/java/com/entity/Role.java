@@ -1,9 +1,36 @@
 package com.entity;
 
+
+import java.util.Set;
+
+/**
+ * 角色表实体类
+ */
 public class Role {
 
     private  int  roleid;
     private  String rolename;
+    //用户集合
+    private Set<User> userSet;
+    //权限集合
+    private  Set<Jurisdiction> jurisdictionSet;
+
+
+    public Set<User> getUserSet() {
+        return userSet;
+    }
+
+    public void setUserSet(Set<User> userSet) {
+        this.userSet = userSet;
+    }
+
+    public Set<Jurisdiction> getJurisdictionSet() {
+        return jurisdictionSet;
+    }
+
+    public void setJurisdictionSet(Set<Jurisdiction> jurisdictionSet) {
+        this.jurisdictionSet = jurisdictionSet;
+    }
 
     public Role(int roleid, String rolename) {
         this.roleid = roleid;

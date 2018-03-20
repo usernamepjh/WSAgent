@@ -3,5 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.dao.PersonDao">
-   </mapper>
+<mapper namespace="com.dao.Userdao">
+
+
+   <select id="getalluser" resultType="com.entity.User">
+      SELECT  * from user
+   </select>
+
+
+    <!--登录-->
+   <select id="login" resultType="com.entity.User">
+      SELECT  * from user where  uname=${uname} AND upwd=${upwd}
+   </select>
+
+    <!--根据用户名拿密码-->
+     <select id="getpassword" parameterType="String" resultType="String">
+        select upwd from user where uname=#{_parameter}
+     </select>
+
+    <!---->
+    <select id="getalluser_byname" parameterType="String" resultType="com.entity.User">
+           SELECT * from user
+    </select>
+
+
+
+
+</mapper>

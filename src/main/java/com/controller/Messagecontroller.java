@@ -40,11 +40,6 @@ public class Messagecontroller {
         return 0;
     }
 
-
-
-
-
-
     //发布信息
     @ResponseBody
     @RequestMapping("sendmessagefrom")

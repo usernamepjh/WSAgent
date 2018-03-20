@@ -28,7 +28,7 @@
     <hr>
     <%--<button type="button" class="btn btn-primary" v-on:click="addmodalshow">添加</button>--%>
     <table class="table table-bordered table-hover" style="width: 60%;margin: 0 auto">
-        <caption class="h3 text-center text-info">用户列表</caption>
+        <caption class="h3 text-center text-info">审核信息</caption>
         <thead>
         <tr>
             <th class="text-center">id</th>

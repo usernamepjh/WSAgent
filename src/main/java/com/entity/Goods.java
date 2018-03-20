@@ -1,6 +1,8 @@
 package com.entity;
 
 import java.sql.Date;
+import java.util.List;
+import java.util.Set;
 
 public class Goods {
 
@@ -11,6 +13,15 @@ public class Goods {
     private  String gloge;
     private  int cid;
 
+    private List<Product> productset;
+
+    public List<Product> getProductset() {
+        return productset;
+    }
+
+    public void setProductset(List<Product> productset) {
+        this.productset = productset;
+    }
 
     public Goods(int gid, String gname, String gprice, int gnum, String gloge, int cid) {
         this.gid = gid;
